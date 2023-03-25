@@ -1,0 +1,26 @@
+<div>
+    <div class="split left left-ratio">
+        <div class="centered">
+            <img src='/assets/logo.png' alt="logo"/>
+            <h2>Creepy Crawly</h2>
+            <h6>&#169; Creepy Crawly</h6>
+        </div>
+    </div>
+    <div class="split right grad right-ratio">
+        <div class="container" id="container">
+            <div>
+                <form action="/">
+                    <h1>Log In</h1>
+                    <input id="email" required placeholder="Email" (ngModelChange)="onChange($event)" [(ngModel)]="email" name="email"/>
+                    <span>We don't share your email with anyone.</span>
+                    <input id="password" type="password" required placeholder="Password" (ngModelChange)="onChange($event)" [(ngModel)]="password" name="password"/>
+                    <!-- <div>
+                    AdminMember
+                    </div> -->
+                    <button (click)="onSubmit()">Identify Me</button>
+                    <h5 *ngIf="error === true">{{validateParams().msg}}</h5>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
