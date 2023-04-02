@@ -1,0 +1,174 @@
+<div class="root">
+    <div class='page'>
+    
+    <div class="page-main">
+        <app-drawer-navbar></app-drawer-navbar>
+    
+        <div class="page-body">Dashboard
+        <div class="row my-4">
+        <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="card">
+                <h5 class="card-header">Developers</h5>
+                <div class="card-body cardBodyInfo">
+                <div class="circle">4</div>
+                <p class="card-text">
+                    Bhavika <br/>
+                    Hiren
+                    <!-- {devInfo.filter(d => d.role === "DEV").map((d) => (
+                        <>{d.name}<br/></>
+                    ))} -->
+                </p>
+                </div>
+                </div>
+        </div>
+    
+        <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+            <div class="card">
+                <h5 class="card-header">QAs</h5>
+                <div class="card-body cardBodyInfo">
+                <div class='circle'>1<!-- {devInfo.filter(d => d.role === "QA").length} --></div>
+                <p class="card-text">
+                    Devang
+                    <!-- {devInfo.filter(d => d.role === "QA").map((d) => (
+                        <>{d.name}<br/></>
+                    ))} -->
+                </p>
+                </div>
+                </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+            <div class="card">
+                <h5 class="card-header">Bugs</h5>
+                <div class="card-body cardBodyInfo">
+                <h6>Open Bug(s):</h6>
+                <div class='circle'>3<!-- { bugInfo.filter(b => b.status.toLowerCase().includes("open")).length} --></div>
+                <p class="card-text">
+                    Dashboard<br/>
+                    Screen Design<br/>
+                    Screen Size<br/>
+                   <!--  {bugInfo.filter(b => b.status.toLowerCase().includes("open")).map((b) => (
+                        <>{b.title}<br/></>
+                    ))} -->
+                </p>
+                <h6>Closed Bug(s):</h6>
+                <div class='circle'>1<!-- { bugInfo.filter(b => b.status.toLowerCase().includes("closed")).length} --></div>
+                <p class="card-text">
+                    UI Issues
+                    <!-- {bugInfo.filter(b => b.status.toLowerCase().includes("closed")).map((b) => (
+                        <>{b.title}<br/></>
+                    ))} -->
+                </p>
+                </div>
+                </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+            <div class="card">
+                <h5 class="card-header">Projects</h5>
+                <div class="card-body cardBodyInfo">
+                <div class='circle'>3<!-- {projectInfo.length} --></div>
+                <p class="card-text">
+                    React<br/>
+                    Web<br/>
+                    J2ee
+                    <!-- {projectInfo.map((p) => (
+                        <>{p.name}<br/></>
+                    ))} -->
+                </p>
+            </div>
+            </div>
+        </div>
+        </div>
+    
+        
+        <div class="row">
+            <div class="col-8 col-xl-6 mb-4 mb-lg-0">
+                <div class="card cardHeight">
+                    <h5 class="card-header">All Recorded Bugs</h5>
+                    <div class="card-body">
+                        
+                          <app-bug></app-bug>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 col-xl-6 mb-4 mb-lg-0">
+                <div class="card cardHeight">
+                    <h5 class="card-header">Visualization of Recorded Bugs by its Status</h5>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div id="traffic-chart all">
+    
+                                <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Click Here For Detailed View</button>
+                              
+                              <br/><br/>
+                              <img src="../../assets/images/image_graph1.jpg" width="520px" height="320px">
+                              <!-- <AreaDemo data={dataValue} />  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 col-xl-6 mb-4 mb-lg-0">
+                <div class="card cardHeight">
+                    <h5 class="card-header">All Recorded Projects</h5>
+                    <div class="card-body">
+                        <div id="traffic-chart">
+                            <app-project></app-project>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    
+        </div></div></div>
+    </div>
+    </div>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')" >X</button>
+        </div>
+        <div class="modal-body">
+            <div class="row blurEffect">
+                <div class="col-6 col-xl-6 mb-4 mb-lg-0">
+                    <div class="card">
+                        <h5 class="card-header">All Bug(s) notified from 2020 to Present</h5>
+                        <div class="card-body">
+                            <div id="traffic-chart">
+                                <img src="../../assets/images/image_graph2.jpg" width="520px" height="280px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-6 mb-4 mb-lg-0">
+                    <div class="card">
+                        <h5 class="card-header">Open Bug(s) notified from 2020 to Present</h5>
+                        <div class="card-body">
+                            <div id="traffic-chart">
+                                <img src="../../assets/images/image_graph3.jpg" width="520px" height="280px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-6 col-xl-6 mb-4 mb-lg-0">
+                <div class="card">
+                    <h5 class="card-header">Closed Bug(s) notified from 2020 to Present</h5>
+                    <div class="card-body">
+                        <div id="traffic-chart">
+                            <img src="../../assets/images/image_graph4.jpg" width="520px" height="280px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-xl-6 mb-4 mb-lg-0">
+                    <div class="card">
+                        <h5 class="card-header">All Bug(s) notified from 2020 to Present</h5>
+                        <div class="card-body">
+                            <div id="traffic-chart">
+                                <img src="../../assets/images/image_graph5.jpg" width="520px" height="280px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </ng-template>
