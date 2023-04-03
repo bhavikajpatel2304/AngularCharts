@@ -16,4 +16,12 @@ export class DashboardService {
   getProjectData(){
     return this.http.get('http://127.0.0.1:5000/bhavika/project')
   }
+
+  getDevData(){
+    return this.http.get('http://127.0.0.1:5000/bhavika/member')
+  }
+
+  getBugInfoData(){
+    return this.http.get('http://127.0.0.1:5000/bhavika/bugsInfo')
+  }
 }

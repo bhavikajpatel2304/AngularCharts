@@ -19,6 +19,14 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ProjectComponent } from './project/project.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrawerNavbarComponent } from './drawer-navbar/drawer-navbar.component';
+import { MatTabsModule } from '@angular/material/tabs';
+
+import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { BarChartForOpenBugsComponent } from './bar-chart-for-open-bugs/bar-chart-for-open-bugs.component';
+import { BarChartForClosedBugsComponent } from './bar-chart-for-closed-bugs/bar-chart-for-closed-bugs.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 @NgModule({
   declarations: [
@@ -29,7 +37,12 @@ import { DrawerNavbarComponent } from './drawer-navbar/drawer-navbar.component';
     DashboardComponent,
     ProjectComponent,
     BugComponent,
-    DrawerNavbarComponent
+    DrawerNavbarComponent,
+    CanvasJSChart,
+    BarChartComponent,
+    BarChartForOpenBugsComponent,
+    BarChartForClosedBugsComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +57,7 @@ import { DrawerNavbarComponent } from './drawer-navbar/drawer-navbar.component';
     HttpClientModule,
     NgbModule,
     BrowserAnimationsModule,
+    MatTabsModule
   ],
   providers: [ HttpClientModule ],
   bootstrap: [AppComponent]

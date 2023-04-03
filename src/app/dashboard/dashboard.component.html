@@ -10,13 +10,9 @@
             <div class="card">
                 <h5 class="card-header">Developers</h5>
                 <div class="card-body cardBodyInfo">
-                <div class="circle">4</div>
+                <div class="circle">{{ devInfo.length }}</div>
                 <p class="card-text">
-                    Bhavika <br/>
-                    Hiren
-                    <!-- {devInfo.filter(d => d.role === "DEV").map((d) => (
-                        <>{d.name}<br/></>
-                    ))} -->
+                    <span *ngFor="let devs of devInfo">{{ devs.name }}<br/></span>
                 </p>
                 </div>
                 </div>
@@ -26,12 +22,9 @@
             <div class="card">
                 <h5 class="card-header">QAs</h5>
                 <div class="card-body cardBodyInfo">
-                <div class='circle'>1<!-- {devInfo.filter(d => d.role === "QA").length} --></div>
+                <div class='circle'>{{ qaInfo.length }}</div>
                 <p class="card-text">
-                    Devang
-                    <!-- {devInfo.filter(d => d.role === "QA").map((d) => (
-                        <>{d.name}<br/></>
-                    ))} -->
+                    <span *ngFor="let qas of qaInfo">{{ qas.name }}<br/></span>
                 </p>
                 </div>
                 </div>
@@ -41,22 +34,14 @@
                 <h5 class="card-header">Bugs</h5>
                 <div class="card-body cardBodyInfo">
                 <h6>Open Bug(s):</h6>
-                <div class='circle'>3<!-- { bugInfo.filter(b => b.status.toLowerCase().includes("open")).length} --></div>
+                <div class='circle'>{{ openBugInfo.length }}</div>
                 <p class="card-text">
-                    Dashboard<br/>
-                    Screen Design<br/>
-                    Screen Size<br/>
-                   <!--  {bugInfo.filter(b => b.status.toLowerCase().includes("open")).map((b) => (
-                        <>{b.title}<br/></>
-                    ))} -->
+                    <span *ngFor="let openBugs of openBugInfo">{{ openBugs.title }}<br/></span>
                 </p>
                 <h6>Closed Bug(s):</h6>
-                <div class='circle'>1<!-- { bugInfo.filter(b => b.status.toLowerCase().includes("closed")).length} --></div>
+                <div class='circle'>{{ closedBugInfo.length }}</div>
                 <p class="card-text">
-                    UI Issues
-                    <!-- {bugInfo.filter(b => b.status.toLowerCase().includes("closed")).map((b) => (
-                        <>{b.title}<br/></>
-                    ))} -->
+                    <span *ngFor="let closedBugs of closedBugInfo">{{ closedBugs.title }}<br/></span>
                 </p>
                 </div>
                 </div>
@@ -65,14 +50,9 @@
             <div class="card">
                 <h5 class="card-header">Projects</h5>
                 <div class="card-body cardBodyInfo">
-                <div class='circle'>3<!-- {projectInfo.length} --></div>
+                <div class='circle'>{{ projectInfo.length }}</div>
                 <p class="card-text">
-                    React<br/>
-                    Web<br/>
-                    J2ee
-                    <!-- {projectInfo.map((p) => (
-                        <>{p.name}<br/></>
-                    ))} -->
+                    <span *ngFor="let projects of projectInfo">{{ projects.name }}<br/></span>
                 </p>
             </div>
             </div>
@@ -101,8 +81,7 @@
                                 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Click Here For Detailed View</button>
                               
                               <br/><br/>
-                              <img src="../../assets/images/image_graph1.jpg" width="520px" height="320px">
-                              <!-- <AreaDemo data={dataValue} />  -->
+                              <canvas id="areaChart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -134,17 +113,18 @@
                         <h5 class="card-header">All Bug(s) notified from 2020 to Present</h5>
                         <div class="card-body">
                             <div id="traffic-chart">
-                                <img src="../../assets/images/image_graph2.jpg" width="520px" height="280px">
+                                <app-bar-chart [data]=bugInfoForChart></app-bar-chart>
+                            </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                
                 <div class="col-6 col-xl-6 mb-4 mb-lg-0">
                     <div class="card">
                         <h5 class="card-header">Open Bug(s) notified from 2020 to Present</h5>
                         <div class="card-body">
                             <div id="traffic-chart">
-                                <img src="../../assets/images/image_graph3.jpg" width="520px" height="280px">
+                                <app-bar-chart-for-open-bugs [data]=openBugInfoForChart></app-bar-chart-for-open-bugs>
                             </div>
                         </div>
                     </div>
@@ -154,7 +134,7 @@
                     <h5 class="card-header">Closed Bug(s) notified from 2020 to Present</h5>
                     <div class="card-body">
                         <div id="traffic-chart">
-                            <img src="../../assets/images/image_graph4.jpg" width="520px" height="280px">
+                            <app-bar-chart-for-closed-bugs [data]=closedBugInfoForChart></app-bar-chart-for-closed-bugs>
                         </div>
                     </div>
                 </div>
@@ -164,11 +144,11 @@
                         <h5 class="card-header">All Bug(s) notified from 2020 to Present</h5>
                         <div class="card-body">
                             <div id="traffic-chart">
-                                <img src="../../assets/images/image_graph5.jpg" width="520px" height="280px">
+                               <app-pie-chart [data]=bugInfoForChart></app-pie-chart>
                             </div>
                         </div>
                     </div>
                 </div>
         </div>
-        </div>
+    </div>
     </ng-template>
